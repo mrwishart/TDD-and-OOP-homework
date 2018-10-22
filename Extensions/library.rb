@@ -57,6 +57,9 @@ class Library
   #
   # end
 
+
+  # Second attempt at change_rental: Compressed test into a single if statement
+
   def change_rental(book_name, rental_name, rental_date, new_date)
 
     for book in @books
