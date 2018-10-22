@@ -33,23 +33,39 @@ class Library
   end
 
 
+  # def change_rental(book_name, rental_name, rental_date, new_date)
+  #
+  #   # Find book via name
+  #   book_to_change = find_book(book_name)
+  #   # Create rental details using arguments
+  #   current_rental = {student_name: rental_name,
+  #   date: rental_date}
+  #
+  #   # Check book found AND rental details are the same
+  #   if (book_to_change != nil && book_to_change[:rental_details] == current_rental)
+  #
+  #     for book in @books
+  #
+  #       if book_to_change == book
+  #         book[:rental_details][:date] = new_date
+  #         break
+  #       end
+  #
+  #     end
+  #
+  #   end
+  #
+  # end
+
   def change_rental(book_name, rental_name, rental_date, new_date)
 
-    # Find book via name
-    book_to_change = find_book(book_name)
-    # Create rental details using arguments
-    current_rental = {student_name: rental_name,
-    date: rental_date}
+    for book in @books
 
-    # Check book found AND rental details are the same 
-    if (book_to_change != nil && book_to_change[:rental_details] == current_rental)
+      if (book[:title] == book_name) && (book[:rental_details][:student_name] == rental_name) && (book[:rental_details][:date] == rental_date)
 
-      for book in @books
+        book[:rental_details][:date] = new_date
 
-        if book_to_change == book
-          book[:rental_details][:date] = new_date
-          break
-        end
+        break
 
       end
 
