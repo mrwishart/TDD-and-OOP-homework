@@ -69,4 +69,32 @@ class TestTeam < MiniTest::Test
 
   end
 
+  def test_points_reader
+
+    example = Team.new("The Ratty Moths", ["Alex", "Bob", "Catherine"], "Sgt Hartman")
+
+    assert_equal(0, example.points)
+
+  end
+
+  def test_team_loss
+
+    example = Team.new("The Ratty Moths", ["Alex", "Bob", "Catherine"], "Sgt Hartman")
+
+    example.result("loss")
+
+    assert_equal(0, example.points)
+
+  end
+
+  def test_team_win
+
+    example = Team.new("The Ratty Moths", ["Alex", "Bob", "Catherine"], "Sgt Hartman")
+
+    example.result("win")
+
+    assert_equal(3, example.points)
+
+  end
+
 end
