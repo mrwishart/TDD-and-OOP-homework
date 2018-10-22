@@ -95,4 +95,25 @@ class TestLibrary < MiniTest::Test
 
   end
 
+  def test_find_rental__found
+
+    single_book = @library1.find_rental("animal_farm")
+    expected_rental = {
+      student_name: "Bob",
+      date: "05/11/15"
+    }
+
+    assert_equal(expected_rental, single_book)
+
+  end
+
+  def test_find_rental__missing
+
+    single_book = @library1.find_rental("tek_wars")
+
+    assert_nil(single_book)
+
+  end
+
+
 end

@@ -16,4 +16,13 @@ class Library
     return nil
   end
 
+  def find_rental(book_name)
+
+    book = find_book(book_name)
+
+    return book[:rental_details] if book != nil
+    return nil
+    
+  end
+
 end
