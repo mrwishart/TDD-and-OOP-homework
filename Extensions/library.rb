@@ -32,4 +32,30 @@ class Library
     @books.push({title: book_name})
   end
 
+
+  def change_rental(book_name, rental_name, rental_date, new_date)
+
+    # Find book via name
+    book_to_change = find_book(book_name)
+    # Create rental details using arguments
+    current_rental = {student_name: rental_name,
+    date: rental_date}
+
+    # Check book found AND rental details are the same 
+    if (book_to_change != nil && book_to_change[:rental_details] == current_rental)
+
+      for book in @books
+
+        if book_to_change == book
+          book[:rental_details][:date] = new_date
+          break
+        end
+
+      end
+
+    end
+
+  end
+
+
 end
