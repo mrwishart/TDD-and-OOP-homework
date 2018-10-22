@@ -11,6 +11,9 @@ class Library
     for book in @books
       return book if book[:title] == book_name
     end
+
+    #404: Book not found
+    return nil
   end
 
 end

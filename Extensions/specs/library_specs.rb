@@ -31,6 +31,8 @@ class TestLibrary < MiniTest::Test
 
   end
 
+  # Test library details vs. library details
+
   def  test_gets_books__A
 
     new_library = [{
@@ -60,13 +62,17 @@ class TestLibrary < MiniTest::Test
 
   end
 
+  # Test array setup properly (should be 3 books)
+
   def test_gets_books__B
 
     assert_equal(3, @library1.books.length)
 
   end
 
-  def test_find_book
+  # Test searching for Animal Farm
+
+  def test_find_book__found
 
     single_book = @library1.find_book("animal_farm")
     expected_book = {
@@ -78,6 +84,14 @@ class TestLibrary < MiniTest::Test
     }
 
     assert_equal(expected_book, single_book)
+
+  end
+
+  def test_find_book__missing
+
+    single_book = @library1.find_book("tek_wars")
+
+    assert_nil(single_book)
 
   end
 
