@@ -1,4 +1,5 @@
 class Library
+
   def initialize(books)
     @books = books
   end
@@ -21,8 +22,14 @@ class Library
     book = find_book(book_name)
 
     return book[:rental_details] if book != nil
+
+    #404: Book not found
     return nil
-    
+
+  end
+
+  def add_book(book_name)
+    @books.push({title: book_name})
   end
 
 end

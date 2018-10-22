@@ -70,7 +70,7 @@ class TestLibrary < MiniTest::Test
 
   end
 
-  # Test searching for Animal Farm
+  # Test searching for book that is there
 
   def test_find_book__found
 
@@ -87,6 +87,8 @@ class TestLibrary < MiniTest::Test
 
   end
 
+  # Test searching for book that isn't there
+
   def test_find_book__missing
 
     single_book = @library1.find_book("tek_wars")
@@ -94,6 +96,8 @@ class TestLibrary < MiniTest::Test
     assert_nil(single_book)
 
   end
+
+  # Test searching for book that is there
 
   def test_find_rental__found
 
@@ -112,6 +116,32 @@ class TestLibrary < MiniTest::Test
     single_book = @library1.find_rental("tek_wars")
 
     assert_nil(single_book)
+
+  end
+
+  # Test add book by book name
+
+  def test_add_book__A
+
+    new_book = "50_adventures_in_ruby_programming"
+
+    @library1.add_book(new_book)
+
+    # Check last book in catalogue = book added
+
+    assert_equal(new_book, @library1.books.last[:title])
+
+  end
+
+  # Test add book by array length
+
+  def test_add_book__B
+
+    new_book = "50_adventures_in_ruby_programming"
+
+    @library1.add_book(new_book)
+
+    assert_equal(4, @library1.books.length)
 
   end
 
